@@ -1,7 +1,3 @@
-from collections import defaultdict
-from typing import List
-import re
-
 """
 Contains Duplicate:
 Given an integer array nums, return true if any value appears at least twice in the array,
@@ -127,3 +123,32 @@ class Solution:
                         (i == "]" and stk.pop() != "["):
                     return False
         return not stk
+"""
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+Example 1:
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+"""
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return head
+        rev_head = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return rev_head
+
+"""
+Given the roots of two binary trees p and q, write a function to check if they are the same or not.
+Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.
+Example 1:
+Input: p = [1,2,3], q = [1,2,3]
+Output: true
+"""
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None and q is None:
+            return True
+        if p and q and p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        return False
