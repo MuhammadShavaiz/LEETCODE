@@ -330,3 +330,60 @@ class Solution:
                         high -= 1
 
         return answer
+"""Combination Target Sum
+You are given an array of distinct integers nums and a target integer target. Your task is to return a list of all unique combinations of nums where the chosen numbers sum to target.
+
+The same number may be chosen from nums an unlimited number of times. Two combinations are the same if the frequency of each of the chosen numbers is the same, otherwise they are different.
+
+You may return the combinations in any order and the order of the numbers in each combination can be in any order.
+
+Example 1:
+
+Input: 
+nums = [2,5,6,9] 
+target = 9
+
+Output: [[2,2,5],[9]]
+"""
+class Solution:
+    def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
+        res = []
+
+        def dfs(i, cur, total):
+            if total == target:
+                res.append(cur.copy())
+                return
+            if i >= len(nums) or total > target:
+                return
+
+            cur.append(nums[i])
+            dfs(i, cur, total + nums[i])
+            cur.pop()
+            dfs(i + 1, cur, total)
+
+        dfs(0, [], 0)
+        return res
+
+'''
+Majority Element:
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+'''
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        n = len(nums)
+        my_dict = defaultdict(int)
+        for i in range(len(nums)):
+            my_dict[nums[i]] += 1
+        n = n // 2
+        for key, value in my_dict.items():
+            if value > n:
+                return key
+        print("no majority element")
+
