@@ -330,6 +330,36 @@ class Solution:
                         high -= 1
 
         return answer
+<<<<<<< HEAD
+=======
+  """Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+ 
+
+Example 1:
+
+Input: s = "()"
+Output: true
+"""
+    class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        mapping = {")":"(", "}":"{", "]":"["}
+
+        for char in s:
+            if char in mapping.values():
+                stack.append(char)
+            elif char in mapping.keys():
+                if not stack or mapping[char] != stack.pop():
+                    return False
+        
+        return not stack
+>>>>>>> 5256a6a62a46cfa6198ec8d47e99ff50f9b471f7
 """Combination Target Sum
 You are given an array of distinct integers nums and a target integer target. Your task is to return a list of all unique combinations of nums where the chosen numbers sum to target.
 
@@ -363,6 +393,7 @@ class Solution:
 
         dfs(0, [], 0)
         return res
+<<<<<<< HEAD
 
 '''
 Majority Element:
@@ -387,3 +418,5 @@ class Solution:
                 return key
         print("no majority element")
 
+=======
+>>>>>>> 5256a6a62a46cfa6198ec8d47e99ff50f9b471f7
