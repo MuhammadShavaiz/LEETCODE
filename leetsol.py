@@ -330,9 +330,8 @@ class Solution:
                         high -= 1
 
         return answer
-<<<<<<< HEAD
-=======
-  """Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+"""Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
 An input string is valid if:
 
@@ -359,7 +358,7 @@ Output: true
                     return False
         
         return not stack
->>>>>>> 5256a6a62a46cfa6198ec8d47e99ff50f9b471f7
+
 """Combination Target Sum
 You are given an array of distinct integers nums and a target integer target. Your task is to return a list of all unique combinations of nums where the chosen numbers sum to target.
 
@@ -393,7 +392,6 @@ class Solution:
 
         dfs(0, [], 0)
         return res
-<<<<<<< HEAD
 
 '''
 Majority Element:
@@ -417,6 +415,31 @@ class Solution:
             if value > n:
                 return key
         print("no majority element")
+'''
+Ransom Note:
+Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+Each letter in magazine can only be used once in ransomNote.
+Example 1:
+Input: ransomNote = "a", magazine = "b"
+Output: false
+Example 2:
+Input: ransomNote = "aa", magazine = "ab"
+Output: false
+Example 3:
+Input: ransomNote = "aa", magazine = "aab"
+Output: true
+'''
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        my_dict = defaultdict(int)
+        for char in magazine:
+            my_dict[char] += 1
+        for char in ransomNote:
+            if my_dict[char] == 0:
+                return False
+            my_dict[char] -= 1
+        return True
 
-=======
->>>>>>> 5256a6a62a46cfa6198ec8d47e99ff50f9b471f7
+
+
+
