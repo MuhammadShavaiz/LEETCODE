@@ -571,6 +571,31 @@ class Solution:
                 return ans
             ans += first[i]
         return ans
+'''
+IsSubsequence:
+Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without 
+disturbing the relative positions of the remaining characters
+Example 1:
+Input: s = "abc", t = "ahbgdc"
+Output: true
+Example 2:
+Input: s = "axc", t = "ahbgdc"
+Output: false
+'''
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        sc = 0
+        tc = 0
+        while sc < len(s) and tc < len(t):
+            if s[sc] == t[tc]:
+                sc += 1
+            tc += 1
+        return sc == len(s)
+'''
+
+'''
+
 
 
 
